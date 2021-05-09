@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="/css/signup.css">
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="../../font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script> -->
+    <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <title>Sign In</title>
+    <script>
+        function abc(){
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 ">
+                <div class="card">
+                    <form action="/postRegister" method="POST" class="box">
+                            <h1>Sign Up</h1>
+                            <input type="text" name="username" placeholder="Username" required>
+                            <input type="date" name="dob" placeholder="Date Of Birth">
+                            <input type="number" name="contact" placeholder="Contact Number">
+                            <input type="email" name="email" placeholder="Email ID">
+                            <input type="text" name="job" placeholder="Profession">
+                            <input type="number" name="hours" placeholder="Possible number of workout hours">
+                            <input type="text" name="issues" placeholder="Health related issues (if any)">
+                            Male
+                            <label class="switch">
+                                <input name= "gender" type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            Female
+                            <input type="number" name="height" placeholder="Height">
+                            <input type="number" name="weight" placeholder="Weight">
+                            <p class="text">Workout preference :-</p>
+                            In Gym
+                            <label class="switch">
+                                <input name= "preference" type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                            At home
+                            <input type="text" name="gym" placeholder="Gymnasium Name">
+                            <input type="number" name="membership_time" placeholder="Membership period (in months only)">
+                            <div class="selectWrapper">
+                                <select name="mem_type" class="selectBox">
+                                    <option value="" disabled selected hidden>Membership Type</option>
+                                    <option class="selectBox">With Trainer</option>
+                                    <option class="selectBox">Without Trainer</option>
+                                </select>
+                            </div>
+                            <input type="submit" name="" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
