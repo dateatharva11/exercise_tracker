@@ -1,0 +1,146 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <%- include('../includes/nav.ejs') %>
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <%- include('../includes/topnav.ejs') %>
+        </div>
+            <div class="wrapper wrapper-content">
+                <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-lg-9">
+                        <h2>Meals</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <!-- <li>
+                                App Views
+                            </li> -->
+                            <li class="active">
+                                <strong>Meals</strong>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInUp">
+                        <ul class="notes">
+                            <li>
+                                <div>
+                                    <small><%= user.createdAt.getDate()%> - <%= user.createdAt.getMonth()+1 %> - <%= user.createdAt.getFullYear() %></small>
+                                    <h4>Healthy Breakfast</h4>
+                                    <p>Whole-grain cereals or bread,
+                                        Low-fat milk,
+                                        Juice,
+                                        A banana,
+                                        Yogurt,
+                                        A pancake
+                                    </p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <small><%= user.createdAt.getDate()%> - <%= user.createdAt.getMonth()+1 %> - <%= user.createdAt.getFullYear() %></small>
+                                    <h4>Snack well </h4>
+                                    <p>An energy bar,
+                                        A banana, an apple or other fresh fruit,
+                                        Yogurt,
+                                        A fruit smoothie,
+                                        A whole-grain bagel or crackers,
+                                        A low-fat granola bar,
+                                        A peanut butter sandwich,
+                                        Sports drink or diluted juice</p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li>
+                            <!-- <li>
+                                <div>
+                                    <small>9:12:28 10-04-2014</small>
+                                    <h4>The standard chunk of Lorem</h4>
+                                    <p>Ipsum used since the 1500s is reproduced below for those interested.</p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li> -->
+                            <li>
+                                <div>
+                                    <small><%= user.createdAt.getDate()%> - <%= user.createdAt.getMonth()+1 %> - <%= user.createdAt.getFullYear() %></small>
+                                    <h4>Eat after you exercise </h4>
+                                    <p>Yogurt and fruit,
+                                        Peanut butter sandwich,
+                                        Low-fat chocolate milk and pretzels,
+                                        Post-workout recovery smoothie,
+                                        Turkey on whole-grain bread with vegetables</p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <small><%= user.createdAt.getDate()%> - <%= user.createdAt.getMonth()+1 %> - <%= user.createdAt.getFullYear() %></small>
+                                    <h4>Drink up Water</h4>
+                                    <p>2 to 3 cups, two to three hours before your workout.<br>
+                                        1/2 to 1 cup  every 15 to 20 minutes during your workout.<br>
+                                        2 to 3 cups after your workout for every 0.5 kilogram of weight you lose during the workout.</p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <small><%= user.createdAt.getDate()%> - <%= user.createdAt.getMonth()+1 %> - <%= user.createdAt.getFullYear() %></small>
+                                    <h4>Choose healthy fats</h4>
+                                    <p>nuts,
+                                        seeds,
+                                        avocados,
+                                        olives and
+                                        oils, such as olive oil</p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <small><%= user.createdAt.getDate()%> - <%= user.createdAt.getMonth()+1 %> - <%= user.createdAt.getFullYear() %></small>
+                                    <h4>Boost your fruit and vegetable intake</h4>
+                                    <p>Try to “eat the rainbow” by choosing fruits and veggies of different colors. This will help you enjoy the full range of vitamins, minerals, and antioxidants that the produce aisle has to offer.</p>
+                                    <a href="#"><i class="fa fa-trash-o "></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    10GB of <strong>250GB</strong> Free.
+                </div>
+                <div>
+                    <strong>Copyright</strong> Example Company &copy; 2014-2017
+                </div>
+            </div>
+    
+            </div>
+            
+    <%- include('../includes/footer.ejs') %>
+            </div>
+    
+    </div>
+    
+        <!-- Mainly scripts -->
+        <script src="js/jquery-2.1.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    
+        <!-- Custom and plugin javascript -->
+        <script src="js/inspinia.js"></script>
+        <script src="js/plugins/pace/pace.min.js"></script>
+    
+    
+    </body>
+    
+    </html>
+    

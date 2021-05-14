@@ -11,10 +11,57 @@
     <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css'>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <title>Sign In</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function abc(){
-
+         $(function() {
+    // Get the form fields and hidden div
+        var checkbox = $("#preference");
+        var hidden_1 = $("#gym");
+        var hidden_2 = $("#period");
+        var hidden_3 = $("#train");
+        
+        //   var populate = $("#populate");
+        
+        // Hide the fields.
+        // Use JS to do this in case the user doesn't have JS 
+        // enabled.
+        hidden_1.hide();
+        hidden_2.hide();
+        hidden_3.hide();
+        // Setup an event listener for when the state of the 
+        // checkbox changes.
+        checkbox.change(function() {
+            // Check to see if the checkbox is checked.
+            // If it is, show the fields and populate the input.
+            // If not, hide the fields.
+            if (checkbox.is(':checked')) {
+            // Show the hidden fields.
+            hidden_1.hide();
+            hidden_2.hide();
+            hidden_3.hide();
+        
+            // Populate the input.
+            // populate.val("Dude, this input got populated!");
+            } else {
+            // Make sure that the hidden fields are indeed
+            // hidden.
+            hidden_1.show();
+            hidden_2.show();
+            hidden_3.show();
+            
+            // You may also want to clear the value of the 
+            // hidden fields here. Just in case somebody 
+            // shows the fields, enters data to them and then 
+            // unticks the checkbox.
+            //
+            // This would do the job:
+            //
+            $("#gym").val("");
+            $("#period").val("");
+            $("#train").val("");
         }
+        });
+    });
     </script>
 </head>
 <body>
@@ -25,15 +72,15 @@
                     <form action="/postRegister" method="POST" class="box">
                             <h1>Sign Up</h1>
                             <input type="text" name="username" placeholder="Username" required>
-                            <input type="date" name="dob" placeholder="Date Of Birth">
-                            <input type="number" name="contact" placeholder="Contact Number">
-                            <input type="email" name="email" placeholder="Email ID">
-                            <input type="text" name="job" placeholder="Profession">
-                            <input type="number" name="hours" placeholder="Possible number of workout hours">
-                            <input type="text" name="issues" placeholder="Health related issues (if any)">
+                            <input type="date" name="dob" placeholder="Date Of Birth" required>
+                            <input type="number" name="contact" placeholder="Contact Number" required>
+                            <input type="email" name="email" placeholder="Email ID" required>
+                            <input type="text" name="job" placeholder="Profession" required>
+                            <input type="number" name="hours" placeholder="Possible number of workout hours" required>
+                            <input type="text" name="issues" placeholder="Health related issues (if any)" required>
                             Male
                             <label class="switch">
-                                <input name= "gender" type="checkbox" checked>
+                                <input name= "gender" type="checkbox" checked required>
                                 <span class="slider round"></span>
                             </label>
                             Female
@@ -42,13 +89,13 @@
                             <p class="text">Workout preference :-</p>
                             In Gym
                             <label class="switch">
-                                <input name= "preference" type="checkbox" checked>
+                                <input name= "preference" type="checkbox" id="preference" checked>
                                 <span class="slider round"></span>
                             </label>
                             At home
-                            <input type="text" name="gym" placeholder="Gymnasium Name">
-                            <input type="number" name="membership_time" placeholder="Membership period (in months only)">
-                            <div class="selectWrapper">
+                            <input type="text" name="gym" id="gym" placeholder="Gymnasium Name">
+                            <input type="number" id="period" name="membership_time" placeholder="Membership period (in months only)">
+                            <div class="selectWrapper" id="train">
                                 <select name="mem_type" class="selectBox">
                                     <option value="" disabled selected hidden>Membership Type</option>
                                     <option class="selectBox">With Trainer</option>
@@ -56,7 +103,9 @@
                                 </select>
                             </div>
                             <input type="submit" name="" value="Submit">
-                    </form>
+                            <p class = "text">Already Registered ? <a href = "/login">Login Here</a></p>
+                        </form>
+                    
                 </div>
             </div>
         </div>

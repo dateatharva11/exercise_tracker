@@ -18,11 +18,11 @@
                         <li>
                             <a href="index.html">Home</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a>UI Elements</a>
-                        </li>
+                        </li> -->
                         <li class="active">
-                            <strong>Panels</strong>
+                            <strong>Exercises</strong>
                         </li>
                     </ol>
                 </div>
@@ -32,85 +32,13 @@
             </div>
         <div class="wrapper wrapper-content animated fadeIn">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>Basic IN+ Panel <small class="m-l-sm">This is custom panel</small></h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-                        <h2 >
-                            This is standard IN+ Panel<br/>
-                        </h2>
-                        <p>
-                            <strong>Lorem ipsum dolor</strong>
-                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
-                        <p>
-                            <small>
-                                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-                            </small>
-                        </p>
-                    </div>
-                    <div class="ibox-footer">
-                        <span class="pull-right">
-                          The righ side of the footer
-                    </span>
-                        This is simple footer example
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="ibox collapsed">
-                    <div class="ibox-title">
-                        <h5>Example of initial collapsed panel</h5>
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="ibox-content">
-
-                        <p>
-                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
-                        <p>
-                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <% if(exercises.length > 0) { %>
+                <% for(let ex of exercises) { %>
+                
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>Example with fullscreen option</h5>
+                        <h5><%= ex.name %></h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -118,256 +46,158 @@
                             <a class="fullscreen-link">
                                 <i class="fa fa-expand"></i>
                             </a>
-                            <a class="close-link">
+                            <a class="close-link" href="/exercises">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">    
+                        <div class="scroll_content">
+                        <p>
+                            <%= ex.description %>
+                            No. of calories = <%= ex.calories %>
+                            Repeat for as many repetitions as your workout routine requires. If you have to pass a fitness test (such as the Army Physical Fitness Test) you can use a few simple strategies to build your strength and endurance in order to do more pushups. One popular strategy is the "one more pushup a day" approach. This is when on day one you do one push-up, then on day two you do two push-ups, and so on.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+            <% } else { %>
+                <p>No exercises found !</p>
+            <% } %>
+    
+            <!-- <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Pull Ups</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="fullscreen-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <a class="close-link" href="/exercises">
                                 <i class="fa fa-times"></i>
                             </a>
                         </div>
                     </div>
                     <div class="ibox-content">
-
+                        
+                        <div class="scroll_content">
+                        <ul>
+                            <li> 
+                                Get on the floor on all fours, positioning your hands slightly wider than your shoulders.
+                            </li>
+                            <li>
+                                Extend your legs back so that you are balanced on your hands and toes. Keep your body in a straight line from head to toe without sagging in the middle or arching your back. You can position your feet to be close together or a bit wider depending on what is most comfortable for you.
+                            </li>
+                            <li>
+                                Before you begin any movement, contract your abs and tighten your core by pulling your belly button toward your spine. Keep a tight core throughout the entire pushup.
+                            </li>
+                            <li>
+                                Inhale as you slowly bend your elbows and lower yourself until your elbows are at a 90-degree angle.
+                            </li>
+                            <li>
+                                Exhale as you begin contracting your chest muscles and pushing back up through your hands to the start position. Don't lock out the elbows; keep them slightly bent.
+                            </li>
+                        </ul>
                         <p>
-                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
-                        <p>
-                            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
+                            Repeat for as many repetitions as your workout routine requires. If you have to pass a fitness test (such as the Army Physical Fitness Test) you can use a few simple strategies to build your strength and endurance in order to do more pushups. One popular strategy is the "one more pushup a day" approach. This is when on day one you do one push-up, then on day two you do two push-ups, and so on.
                         </p>
+                    </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-12">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h5>Example of constant height with scroll</h5>
+                        <h5>Bench Press</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
                             </a>
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <i class="fa fa-wrench"></i>
+                            <a class="fullscreen-link">
+                                <i class="fa fa-expand"></i>
                             </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">Config option 1</a>
-                                </li>
-                                <li><a href="#">Config option 2</a>
-                                </li>
-                            </ul>
-                            <a class="close-link">
+                            <a class="close-link" href="/exercises">
                                 <i class="fa fa-times"></i>
                             </a>
                         </div>
                     </div>
                     <div class="ibox-content">
+                        
                         <div class="scroll_content">
-                            <p>
-                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                            </p>
-
-                            <p>
-                                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                                pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                                Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
-                                dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                            </p>
-                            <p>
-                                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                                pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-                            </p>
-                            <p>
-                                Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
-                                rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis
-                                pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                    <h5>Bootstrap Panels <small>Custom background colors.</small></h5>
-                    </div>
-                        <div class="ibox-content">
-
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            Default Panel
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            Primary Panel
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="panel panel-success">
-                                        <div class="panel-heading">
-                                            Success Panel
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">
-                                            <i class="fa fa-info-circle"></i> Info Panel
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="panel panel-warning">
-                                        <div class="panel-heading">
-                                            <i class="fa fa-warning"></i> Warning Panel
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="panel panel-danger">
-                                        <div class="panel-heading">
-                                             Danger Panel with Footer
-                                        </div>
-                                        <div class="panel-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                                        </div>
-                                        <div class="panel-footer">
-                                            Panel Footer
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Collaps panels</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <i class="fa fa-wrench"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">Config option 1</a>
-                                    </li>
-                                    <li><a href="#">Config option 2</a>
-                                    </li>
-                                </ul>
-                                <a class="close-link">
-                                    <i class="fa fa-times"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-                            <div class="panel-body">
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h5 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Collapsible Group Item #1</a>
-                                            </h5>
-                                        </div>
-                                        <div id="collapseOne" class="panel-collapse collapse in">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Collapsible Group Item #2</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseTwo" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Collapsible Group Item #3</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="jumbotron">
-                        <h1>Jumbotron</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <p><a role="button" class="btn btn-primary btn-lg">Learn more</a>
+                        <ul>
+                            <li> 
+                                Get on the floor on all fours, positioning your hands slightly wider than your shoulders.
+                            </li>
+                            <li>
+                                Extend your legs back so that you are balanced on your hands and toes. Keep your body in a straight line from head to toe without sagging in the middle or arching your back. You can position your feet to be close together or a bit wider depending on what is most comfortable for you.
+                            </li>
+                            <li>
+                                Before you begin any movement, contract your abs and tighten your core by pulling your belly button toward your spine. Keep a tight core throughout the entire pushup.
+                            </li>
+                            <li>
+                                Inhale as you slowly bend your elbows and lower yourself until your elbows are at a 90-degree angle.
+                            </li>
+                            <li>
+                                Exhale as you begin contracting your chest muscles and pushing back up through your hands to the start position. Don't lock out the elbows; keep them slightly bent.
+                            </li>
+                        </ul>
+                        <p>
+                            Repeat for as many repetitions as your workout routine requires. If you have to pass a fitness test (such as the Army Physical Fitness Test) you can use a few simple strategies to build your strength and endurance in order to do more pushups. One popular strategy is the "one more pushup a day" approach. This is when on day one you do one push-up, then on day two you do two push-ups, and so on.
                         </p>
                     </div>
+                    </div>
                 </div>
             </div>
-            </div>
-        <div class="footer">
-            <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
-            </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2017
-            </div>
-        </div>
+            <div class="col-lg-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Squats</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="fullscreen-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <a class="close-link" href="/exercises">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        
+                        <div class="scroll_content">
+                        <ul>
+                            <li> 
+                                Get on the floor on all fours, positioning your hands slightly wider than your shoulders.
+                            </li>
+                            <li>
+                                Extend your legs back so that you are balanced on your hands and toes. Keep your body in a straight line from head to toe without sagging in the middle or arching your back. You can position your feet to be close together or a bit wider depending on what is most comfortable for you.
+                            </li>
+                            <li>
+                                Before you begin any movement, contract your abs and tighten your core by pulling your belly button toward your spine. Keep a tight core throughout the entire pushup.
+                            </li>
+                            <li>
+                                Inhale as you slowly bend your elbows and lower yourself until your elbows are at a 90-degree angle.
+                            </li>
+                            <li>
+                                Exhale as you begin contracting your chest muscles and pushing back up through your hands to the start position. Don't lock out the elbows; keep them slightly bent.
+                            </li>
+                        </ul>
+                        <p>
+                            Repeat for as many repetitions as your workout routine requires. If you have to pass a fitness test (such as the Army Physical Fitness Test) you can use a few simple strategies to build your strength and endurance in order to do more pushups. One popular strategy is the "one more pushup a day" approach. This is when on day one you do one push-up, then on day two you do two push-ups, and so on.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <%- include('../includes/footer.ejs') %>
 
         </div>
         </div>

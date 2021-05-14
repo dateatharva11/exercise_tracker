@@ -4,7 +4,6 @@
 <body>
 
     <div id="wrapper">
-
         <%- include('../includes/nav.ejs') %>
         <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
@@ -15,13 +14,18 @@
                     <div class="col-lg-3">
                         <div class="ibox float-e-margins">
                             <div class="ibox-title">
-                                <span class="label label-success pull-right">Monthly</span>
-                                <h5>Exercises</h5>
+                                <span class="label label-success pull-right">Today</span>
+                                <h5>Calories</h5>
                             </div>
                             <div class="ibox-content">
-                                <h1 class="no-margins">1 hour</h1>
-                                <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
-                                <small>Time</small>
+                                <% if(user.gender == "female") { %>
+                                <h1 class="no-margins">2000</h1>
+                                <% } else { %>
+                                <h1 class="no-margins">2500</h1>    
+                                <%}%>
+                                
+                                <div class="stat-percent font-bold text-success"><%  %> burnt <i class="fa fa-bolt"></i></div>
+                                <small>Intake</small>
                             </div>
                         </div>
                     </div>
@@ -89,7 +93,7 @@
                                     <ul class="stat-list">
                                         <li>
                                             <h2 class="no-margins">2,346</h2>
-                                            <small>Total orders in period</small>
+                                            <small>Total calories in period</small>
                                             <div class="stat-percent">48% <i class="fa fa-level-up text-navy"></i></div>
                                             <div class="progress progress-mini">
                                                 <div style="width: 48%;" class="progress-bar"></div>
@@ -97,7 +101,7 @@
                                         </li>
                                         <li>
                                             <h2 class="no-margins ">4,422</h2>
-                                            <small>Orders in last month</small>
+                                            <small>Calories in last month</small>
                                             <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
                                             <div class="progress progress-mini">
                                                 <div style="width: 60%;" class="progress-bar"></div>
@@ -105,7 +109,7 @@
                                         </li>
                                         <li>
                                             <h2 class="no-margins ">9,180</h2>
-                                            <small>Monthly income from orders</small>
+                                            <small>Monthly calorie Intake</small>
                                             <div class="stat-percent">22% <i class="fa fa-bolt text-navy"></i></div>
                                             <div class="progress progress-mini">
                                                 <div style="width: 22%;" class="progress-bar"></div>
@@ -421,14 +425,7 @@
 
                 </div> -->
                 </div>
-        <div class="footer">
-            <div class="pull-right">
-                10GB of <strong>250GB</strong> Free.
-            </div>
-            <div>
-                <strong>Copyright</strong> Example Company &copy; 2014-2017
-            </div>
-        </div>
+        <%- include('../includes/footer.ejs') %>
         </div>
         <!-- <div id="right-sidebar">
             <div class="sidebar-container">
@@ -892,7 +889,7 @@
 
             var dataset = [
                 {
-                    label: "Number of orders",
+                    label: "Calorie Intake",
                     data: data3,
                     color: "#1ab394",
                     bars: {
@@ -903,7 +900,7 @@
                     }
 
                 }, {
-                    label: "Payments",
+                    label: "Calories Burnt",
                     data: data2,
                     yaxis: 2,
                     color: "#1C84C6",

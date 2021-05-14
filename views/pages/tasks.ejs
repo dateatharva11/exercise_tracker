@@ -1,0 +1,223 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<script>
+    // $(document).ready(function(){
+	// 	    $('.count').prop('disabled', true);
+   	// 		$(document).on('click','.plus',function(){
+	// 			$('.count').val(parseInt($('.count').val()) + 1 );
+    // 		});
+    //     	$(document).on('click','.minus',function(){
+    // 			$('.count').val(parseInt($('.count').val()) - 1 );
+    // 				if ($('.count').val() == 0) {
+	// 					$('.count').val(1);
+	// 				}
+    // 	    	});
+ 	// 	});
+                            
+//      $(function() {
+//         if(exercises.length > 0) { 
+//          for(let ex of exercises) { 
+     
+//         // Get the form fields and hidden div
+//         var checkbox = $("#trigger");
+//         var hidden = $("#hidden_field");
+//         //   var populate = $("#populate");
+        
+//         // Hide the fields.
+//         // Use JS to do this in case the user doesn't have JS 
+//         // enabled.
+//         hidden.hide();
+        
+//         // Setup an event listener for when the state of the 
+//         // checkbox changes.
+//         checkbox.change(function() {
+//             // Check to see if the checkbox is checked.
+//             // If it is, show the fields and populate the input.
+//             // If not, hide the fields.
+//             if (checkbox.is(':checked')) {
+//             // Show the hidden fields.
+//             hidden.show();
+//             // Populate the input.
+//             populate.val("Dude, this input got populated!");
+//             } else {
+//             // Make sure that the hidden fields are indeed
+//             // hidden.
+//             hidden.hide();
+            
+//             // You may also want to clear the value of the 
+//             // hidden fields here. Just in case somebody 
+//             // shows the fields, enters data to them and then 
+//             // unticks the checkbox.
+//             //
+//             // This would do the job:
+//             //
+//             $("#hidden_field").val("");
+//         }
+//         });
+//     }
+// }
+//     });
+</script>
+<body>
+
+    <div id="wrapper">
+        <%- include('../includes/nav.ejs') %>
+
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <%- include('../includes/topnav.ejs') %>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Agile board</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <!-- <li>
+                        <a>Miscellaneous</a>
+                    </li> -->
+                    <li class="active">
+                        <strong>Agile board</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+    <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h3>To-do</h3>
+                        <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+
+                        <div class="input-group">
+                            <input type="text" placeholder="Add new task. " class="input input-sm form-control">
+                            <span class="input-group-btn">
+                                    <button type="button" class="btn btn-sm btn-white"> <i class="fa fa-plus"></i> Add task</button>
+                            </span>
+                        </div>
+                        <form action="/posttasks" method="POST">
+                        <ul class="sortable-list connectList agile-list" id="todo">
+                            
+                            <% if(exercises.length > 0) { %>
+                                <% for(let ex of exercises) { %>
+                            
+
+                            <li class="success-element" id="task2">
+                            
+                                    <%= ex.name %>
+                                
+                                <div class="agile-detail">
+                                    <i class="fa fa-clock-o"></i> <%= today %>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="hidden" name="ex_name" value="<%= ex.name %>" class="pull-right">
+                                    <!-- <label style="padding-left: 15px;" class="pull-right">Mark</label> -->
+                                    
+                                    <input type="number" name="reps" class="pull-right" style="width:40px" value="0">
+                                    <label class="pull-right">Repitions</label>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% } else { %>
+                                <p>No exercises found !</p>
+                            <% } %>
+                        </ul>
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-2">
+                                <!-- <button class="btn btn-white" type="submit">Cancel</button> -->
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <h3>Completed</h3>
+                        <p class="small"><i class="fa fa-hand-o-up"></i> Drag task between list</p>
+                        <ul class="sortable-list connectList agile-list" id="completed">
+                            <% if(performed.length > 0) { %>
+                                <% for(let p of performed) { %>
+                            
+                            <li class="warning-element" id="task19">
+                                <%= p.name %>
+                                <div class="agile-detail">
+                                    <a href="#" class="pull-right btn btn-xs btn-primary">Done</a>
+                                    <i class="fa fa-clock-o"></i> <%= p.pdate  %>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-bolt"></i> <%= p.calories %>
+                                </div>
+                            </li>
+                            <% } %>
+                            <% } else { %>
+                                <p>No exercises found !</p>
+                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-lg-12">
+
+                <h4>
+                    Serialised Output
+                </h4>
+                <p>
+                    Serializes the sortable's item id's into an array of string.
+                </p>
+
+                <div class="output p-m m white-bg"></div>
+
+
+            </div>
+        </div> -->
+
+
+    </div>
+    <%- include('../includes/footer.ejs') %>
+
+</div>
+</div>
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jquery-ui-1.10.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#todo, #inprogress, #completed").sortable({
+                connectWith: ".connectList",
+                update: function( event, ui ) {
+
+                    var todo = $( "#todo" ).sortable( "toArray" );
+                    var inprogress = $( "#inprogress" ).sortable( "toArray" );
+                    var completed = $( "#completed" ).sortable( "toArray" );
+                    $('.output').html("ToDo: " + window.JSON.stringify(todo) + "<br/>" + "In Progress: " + window.JSON.stringify(inprogress) + "<br/>" + "Completed: " + window.JSON.stringify(completed));
+                }
+            }).disableSelection();
+
+        });
+    </script>
+
+</body>
+
+</html>
+

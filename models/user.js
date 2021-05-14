@@ -48,7 +48,29 @@ const userSchema = new Schema({
   },
   mem_type:{
     type:String
-  }
+  },
+  exercises: 
+  [
+    {
+      id :
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Exercises',
+        default : null,
+      },
+      cal_burnt :
+      {
+        type: Number,
+        default : 0
+      },
+      pdate :
+      {
+        type: String,
+        default : null
+      }
+    }
+  ]
+  
 }, {
   timestamps: true,
 });

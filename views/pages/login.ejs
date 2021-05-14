@@ -17,16 +17,16 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="card">
-                    <form onsubmit="event.preventDefault()" class="box">
+                    <form action="/postlogin" method="POST" class="box">
                             <h1>Login</h1>
-                            <p class="text"> Please enter your login and password!</p> <input type="text" name="" placeholder="Username"> <input type="password" name="" placeholder="Password"> <a class="forgot text-muted" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#">
+                            <p class="text">Please enter your login and password!</p> <input type="text" name="username" placeholder="Username"> <input type="password" name="password" placeholder="Password"> <a class="forgot text-muted" href="#">Forgot password?</a> <input type="submit" name="" value="Login" href="#">
                             <div class="col-md-12">
                                 <ul class="social-network social-circle">
                                     <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
                                     <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                                     <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                                 </ul>
-                                <p class = "text">New to Gymnovation ? <a href = "">Register Here</a></p>
+                                <p class = "text">New to Gymspiration ? <a href = "/register">Register Here</a></p>
                             </div>
                     </form>
                 </div>

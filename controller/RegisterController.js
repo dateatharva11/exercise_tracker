@@ -1,5 +1,6 @@
 let User = require('../models/user');
-
+let jwt = require('jsonwebtoken');
+var token;
 exports.register =  (req,res,next) => {    
     res.render('pages/register.ejs');
 }
@@ -18,10 +19,10 @@ exports.postRegister = (req,res,next) => {
     const membership_time= req.body.membership_time;
     var gender = req.body.gender;
     if(gender=='on'){
-        gender='female';
+        gender='Female';
     }
     else{
-        gender='male';
+        gender='Male';
     }
     var preference = req.body.preference;
     if(preference=='on'){
@@ -43,4 +44,72 @@ exports.postRegister = (req,res,next) => {
           res.redirect('/login');
         })
       .catch(err => res.status(400).json('Error: ' + err));
+}
+
+exports.login=(req,res,next)=>{
+    if(req.session.username)
+    {res.redirect('/');}
+    else{
+        res.render('pages/login');
+    }
+}
+
+exports.postlogin=(req,res,next)=>{
+    const username = req.body.username;
+    const password = req.body.password;
+    // const windowGlobal = typeof window !== 'undefined' && window;
+    User.findOne({username:username})
+    .then(user=>{
+        // console.log(user,user.job);
+        if(user.job === password){
+            token= jwt.sign({user:user},'some-secret-key',{expiresIn : "2h"});
+            req.session.token = token;
+            req.session.username = user.username;
+            // console.log("In post login =");
+            res.redirect('/');
+        }
+        else{
+            // console.log("User=",user,"Job=",user.job,"Password=",password);
+            console.log("User found but incorrect password");
+            res.redirect('/login');
+        }
+        // res.redirect('/login');
+    }).catch(err=>{
+        console.log(err,"User not found");
+        res.redirect('/login');
+    });
+    // if(user==null){
+    // console.log("User not found");
+    // res.redirect('/login');
+    // }
+    // else{
+    //     if(user.job === password){
+    //         res.render('pages/dashboard');
+    //     }
+    //     else{
+    //         console.log("User=",user,"Job=",user.job,"Password=",password);
+    //         console.log("User found but incorrect password");
+    //         res.redirect('/login');
+    //     }
+    // }
+}
+exports.dashboard = async (req,res,next) =>{
+    // var result = ;
+    // console.log("In dashboard=",result);
+    const user = await User.findOne({username:req.session.username});
+        console.log(user);
+        if(req.session.username)
+        res.render('pages/dashboard',{user:user});
+        else{
+        console.log("Not logged in");
+        res.redirect('/login');}
+    
+}
+exports.logout = (req,res,next) =>{
+    req.session.destroy(function(err) {
+        // cannot access session here
+        // console.log(req.session.username);
+        res.redirect('/login');
+    })
+    
 }

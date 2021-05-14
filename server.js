@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const path=require('path');
 const RegisterRouter = require('./routes/register.js')
+const PagesRouter = require('./routes/pages');
+const session = require('express-session');
 // let User = require('./models/user');
 
 require('dotenv').config();
@@ -21,6 +23,7 @@ app.use(express.json());
 //connect to mongodb
 const uri = process.env.URI
 mongoose.connect(uri, { useNewUrlParser:true, useCreateIndex:true,useUnifiedTopology: true} );
+mongoose.set('useFindAndModify', false);
 const connection = mongoose.connection
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully');
@@ -33,35 +36,12 @@ app.listen(port, () => {
 
 app.use(bodyParser.urlencoded({extended :false}));
 app.use(express.static(path.join(__dirname,'public')));
+app.use(session({secret:'my-secret',resave:false,saveUninitialized:false}));
 
 app.use(RegisterRouter);
-
+app.use(PagesRouter);
 app.use('/login',(req,res,next)=>{
     res.render('pages/login.ejs');
 });
 
-//app.use('/register',RegisterRouter);
-// app.use('/postregister',(req,res,next)=>{ 
-//     const username = req.body.username;   
-//     const newUser = new User({username});
-//     newUser.save()
-//       .then(() => res.json('User added!'))
-//       .catch(err => res.status(400).json('Error: ' + err));
-//     res.render('pages/register.ejs');
-// });
-
-// app.use('/register',(req,res,next)=>{    
-//     res.render('pages/register.ejs');
-// });
-
-app.use('/exercises',(req,res,next)=>{
-    res.render('pages/exercises.ejs');
-});
-
-app.use('/dashboard',(req,res,next)=>{
-    res.render('pages/dashboard.ejs');
-});
-app.use('/',(req,res,next)=>{
-    res.render('pages/page.ejs');
-});
 app.listen(3000);
